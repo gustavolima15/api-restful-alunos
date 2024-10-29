@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/gustavolima15/api-restful-alunos#readme",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "uuid": "^11.0.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
