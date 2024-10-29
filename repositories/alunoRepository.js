@@ -12,3 +12,5 @@ function create({ nome, email, nome_curso }) {
   alunos.push(aluno);
   return aluno;
 }
+
+module.exports = { create };
