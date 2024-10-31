@@ -12,12 +12,12 @@ function create({ nome, email, nome_curso }) {
   alunos.push(aluno);
   return aluno;
 }
-function update(id, { nome, email, nome_curso }) {
+function remove(id) {
   const index = alunos.findIndex((aluno) => aluno.id === id);
-  if (index < 0) return null;
+  if (index < 0) return false;
 
-  alunos[index] = { id, nome, email, nome_curso };
-  return alunos[index];
+  alunos.splice(index, 1);
+  return true;
 }
 
 app.put('/alunos/:id', (req, res) => {
