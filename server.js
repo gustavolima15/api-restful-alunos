@@ -5,7 +5,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-
+app.get('/alunos', (req, res) => {
+  const alunos = findAll();
+  res.json(alunos);
+});
 app.post('/alunos', (req, res) => {
     const { nome, email, nome_curso } = req.body;
     const aluno = create({ nome, email, nome_curso });
