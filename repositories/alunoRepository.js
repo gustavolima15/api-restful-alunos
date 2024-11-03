@@ -1,3 +1,7 @@
+const { v4: uuidv4 } = require('uuid');
+
+let alunos = [];
+
 function create({ nome, email, nome_curso }) {
 
   try {
@@ -60,14 +64,8 @@ function update(id, { nome, email, nome_curso }) {
   }
 }
 
-app.delete('/alunos/:id', (req, res) => {
-  const { id } = req.params;
-  const result = remove(id);
-  if (!result) return res.status(404).json({ error: 'Aluno não encontrado' });
-
-  res.status(204).send();
-});
-
 function findAll() {
   return alunos;
 }
+
+module.exports = { create, findAll, update, remove };
