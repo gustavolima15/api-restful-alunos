@@ -1,5 +1,5 @@
 const express = require('express');
-const { create, findAll, update, remove } = require('./repositories/alunoRepository');
+const { create, findAll, findById, update, remove } = require('./repositories/alunoRepository');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -9,6 +9,14 @@ const port = process.env.PORT || 3000;
     const alunos = findAll();
     res.json(alunos);
   });
+
+  app.get('/alunos/:id', (req, res) => {
+    const { id } = req.params;
+    const aluno = findById(id);
+    if (!aluno) return res.status(404).json({ error: 'Aluno não encontrado' });
+    res.json(aluno);
+  });
+  
   app.post('/alunos', (req, res) => {
     const { nome, email, nome_curso } = req.body;
     const aluno = create({ nome, email, nome_curso });

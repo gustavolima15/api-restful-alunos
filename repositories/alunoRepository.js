@@ -68,4 +68,8 @@ function findAll() {
   return alunos;
 }
 
-module.exports = { create, findAll, update, remove };
+function findById(id) {
+  return alunos.find((aluno) => aluno.id === id);
+}
+
+module.exports = { create, findAll, findById, update, remove };
